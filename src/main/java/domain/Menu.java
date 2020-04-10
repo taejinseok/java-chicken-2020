@@ -29,4 +29,8 @@ public class Menu {
 	public boolean isSameNumber(int number) {
 		return this.number == number;
 	}
+
+	public String getName() {
+		return name;
+	}
 }

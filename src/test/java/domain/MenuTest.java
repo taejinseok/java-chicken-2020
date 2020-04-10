@@ -39,7 +39,7 @@ class MenuTest {
 
 	@DisplayName("메뉴 인스턴스가 입력 받은 id와 같은 id 라면 참 반환")
 	@ParameterizedTest
-	@CsvSource({"1,true","2,false"})
+	@CsvSource({"1,true", "2,false"})
 	void 테이블_인스턴스의_아이디가_입력받은_아이디와_같은지_테스트(int inputId, boolean expected) {
 		boolean actual = chicken.isSameNumber(inputId);
 		assertThat(actual).isEqualTo(expected);

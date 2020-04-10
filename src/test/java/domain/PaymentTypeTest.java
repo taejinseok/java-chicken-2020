@@ -14,7 +14,7 @@ class PaymentTypeTest {
 
 	@DisplayName("입력값에 따른 결제수단 객체를 가져오는지 테스트")
 	@ParameterizedTest
-	@CsvSource({"1,CASH", "2,CREDIT"})
+	@CsvSource({"2,CASH", "1,CREDIT"})
 	void 입력_id_에_따른_결제수단_결정하는_테스트(int id, PaymentType paymentType) {
 		assertThat(PaymentType.of(id)).isEqualTo(paymentType);
 	}

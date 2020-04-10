@@ -31,6 +31,11 @@ public class InputView {
 		return parseInt(SCANNER.nextLine());
 	}
 
+	public static int inputPaymentType() {
+		System.out.println("## 신용카드는 1번, 현금은 2");
+		return parseInt(SCANNER.nextLine());
+	}
+
 	private static int parseInt(String input) {
 		try {
 			return Integer.parseInt(input);

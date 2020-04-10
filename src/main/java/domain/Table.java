@@ -37,4 +37,16 @@ public class Table {
 	public boolean isSameNumber(int number) {
 		return this.number == number;
 	}
+
+	public void cleanAllOrder() {
+		order.removeAllOrder();
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public int getId() {
+		return number;
+	}
 }

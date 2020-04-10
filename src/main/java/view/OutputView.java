@@ -1,8 +1,11 @@
 package view;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import domain.Menu;
+import domain.Order;
 import domain.Table;
 
 public class OutputView {
@@ -58,5 +61,25 @@ public class OutputView {
 
 	public static void printExceptionMessage(String exceptionMessage) {
 		System.out.println(exceptionMessage);
+	}
+
+	public static void printOrderStatus(Order order) {
+		System.out.println("## 주문 내역");
+		System.out.println("메뉴 수량 금액");
+		Map<Menu, Integer> orderCounts = order.getOrderCounts();
+		Set<Menu> menus = orderCounts.keySet();
+		for (Menu menu : menus) {
+			int orderCount = orderCounts.get(menu);
+			System.out.printf("%s %d %d\n", menu.getName(), orderCount, menu.calculateTotalPrice(orderCount));
+		}
+	}
+
+	public static void printPaymentIntro(Table table) {
+		System.out.printf("## %d번 테이블의 결제를 진행합니다\n", table.getId());
+	}
+
+	public static void printPaymentPrice(int price) {
+		System.out.println("## 최종 결제할 금액");
+		System.out.printf("%d 원\n\n", price);
 	}
 }

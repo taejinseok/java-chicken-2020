@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public enum PaymentType {
-	CASH(1, 5),
-	CREDIT(2, 0);
+	CREDIT(1, 0),
+	CASH(2, 5);
 
 	private static final String NONE_EXIST_PAYMENT_TYPE_MATCHING_ID = "해당 값에 대응하는 결제수단이 존재하지 않습니다.";
 	private static final int PERCENTAGE = 100;

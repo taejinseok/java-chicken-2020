@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,5 +48,9 @@ public class Order {
 
 	public void removeAllOrder() {
 		orderCounts.clear();
+	}
+
+	public Map<Menu, Integer> getOrderCounts() {
+		return Collections.unmodifiableMap(new HashMap<>(orderCounts));
 	}
 }
