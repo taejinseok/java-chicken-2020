@@ -33,4 +33,8 @@ public class Table {
 	public boolean hasNoOrder() {
 		return order.isEmpty();
 	}
+
+	public boolean isSameNumber(int number) {
+		return this.number == number;
+	}
 }

@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 @SuppressWarnings("NonAsciiCharacters")
 class TableTest {
@@ -62,5 +64,13 @@ class TableTest {
 	void 현재_주문이_비어있는가_테스트2() {
 		table.addOrder(beverage, 50);
 		assertThat(table.hasNoOrder()).isFalse();
+	}
+
+	@DisplayName("테이블 인스턴스가 입력 받은 id와 같은 id 라면 참 반환")
+	@ParameterizedTest
+	@CsvSource({"1,true","2,false"})
+	void 테이블_인스턴스의_아이디가_입력받은_아이디와_같은지_테스트(int inputId, boolean expected) {
+		boolean actual = table.isSameNumber(inputId);
+		assertThat(actual).isEqualTo(expected);
 	}
 }

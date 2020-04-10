@@ -1,6 +1,7 @@
 package service;
 
 import domain.MenuRepository;
+import domain.Table;
 import domain.TableRepository;
 
 public class ChickenService {
@@ -14,5 +15,10 @@ public class ChickenService {
 
 	public void addOrder() {
 
+	}
+
+	public int processPayment(int tableId) {
+		Table table = tableRepository.findTable(tableId);
+		return 1;
 	}
 }
