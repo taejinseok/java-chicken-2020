@@ -44,4 +44,18 @@ class MenuTest {
 		boolean actual = chicken.isSameNumber(inputId);
 		assertThat(actual).isEqualTo(expected);
 	}
+
+	@DisplayName("toStringTest")
+	@Test
+	void toStringTest() {
+		assertThat(chicken.toString())
+			.isEqualTo("[치킨] 1 - 치킨 : 5000원");
+	}
+
+	@DisplayName("getNameTest")
+	@Test
+	void getNameTest() {
+		assertThat(chicken.getName())
+			.isEqualTo("치킨");
+	}
 }

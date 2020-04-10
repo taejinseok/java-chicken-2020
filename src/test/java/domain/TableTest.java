@@ -73,4 +73,10 @@ class TableTest {
 		boolean actual = table.isSameNumber(inputId);
 		assertThat(actual).isEqualTo(expected);
 	}
+
+	@DisplayName("toStringTest")
+	@Test
+	void toStringTest() {
+		assertThat(table.toString()).isEqualTo("1");
+	}
 }

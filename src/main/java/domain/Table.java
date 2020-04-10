@@ -45,8 +45,4 @@ public class Table {
 	public Order getOrder() {
 		return order;
 	}
-
-	public int getId() {
-		return number;
-	}
 }

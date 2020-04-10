@@ -75,7 +75,7 @@ public class OutputView {
 	}
 
 	public static void printPaymentIntro(Table table) {
-		System.out.printf("## %d번 테이블의 결제를 진행합니다\n", table.getId());
+		System.out.printf("## %s번 테이블의 결제를 진행합니다\n", table);
 	}
 
 	public static void printPaymentPrice(int price) {
