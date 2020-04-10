@@ -6,6 +6,7 @@ import java.util.Map;
 public class Order {
 	private static final int MIN_OVERFLOW_ORDER_COUNT = 100;
 	private static final String OVERFLOW_MENU_COUNT_EXCEPTION_MESSAGE = "주문하고자 하는 메뉴의 최대치를 초과했어요.";
+
 	private final Map<Menu, Integer> orderCounts;
 
 	public Order() {
