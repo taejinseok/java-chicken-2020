@@ -37,4 +37,12 @@ public class OutputView {
 		}
 		System.out.println();
 	}
+
+	public static void printExit() {
+		System.out.println("포스기를 종료합니다.");
+	}
+
+	public static void printExceptionMessage(String exceptionMessage) {
+		System.out.println(exceptionMessage);
+	}
 }
