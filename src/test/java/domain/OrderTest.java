@@ -50,4 +50,17 @@ class OrderTest {
 		assertThatCode(() -> order.add(new Menu(1, "치킨", Category.CHICKEN, 5000), 3))
 			.doesNotThrowAnyException();
 	}
+
+	@DisplayName("현재 주문내역이 비어있으면 true 반환")
+	@Test
+	void 현재_주문이_비어있는가_테스트() {
+		assertThat(order.isEmpty()).isTrue();
+	}
+
+	@DisplayName("현재 주문내역이 비어있지 않으면 false 반환")
+	@Test
+	void 현재_주문이_비어있는가_테스트2() {
+		order.add(beverage, 50);
+		assertThat(order.isEmpty()).isFalse();
+	}
 }

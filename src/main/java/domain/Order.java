@@ -24,4 +24,8 @@ public class Order {
 	public boolean isOverFlowIfAdd(Menu chicken, int additionalOrderNum) {
 		return orderCounts.getOrDefault(chicken, 0) + additionalOrderNum >= MIN_OVERFLOW_ORDER_COUNT;
 	}
+
+	public boolean isEmpty() {
+		return orderCounts.isEmpty();
+	}
 }
