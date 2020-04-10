@@ -19,8 +19,8 @@ class OrderTest {
 	@BeforeEach
 	void setUp() {
 		order = new Order(new HashMap<>());
-		chicken = new Menu(1, "치킨", Category.CHICKEN, 5000);
-		beverage = new Menu(2, "맥주", Category.BEVERAGE, 5000);
+		chicken = new Menu(1, "치킨", Category.CHICKEN, 5_000);
+		beverage = new Menu(2, "맥주", Category.BEVERAGE, 5_000);
 	}
 
 	@DisplayName("추가 하고자 하는 메뉴의 수량과 기존의 수량을 합치면 99개보다 큰가?")
@@ -31,23 +31,28 @@ class OrderTest {
 		assertThat(order.isOverFlowIfAdd(chicken, additionalOrderNum)).isEqualTo(expected);
 	}
 
-	@DisplayName("총 주문 금액을 가져오자")
+	@DisplayName("주문을 이루고 있는 메뉴 * 갯수 의 총 합을 올바르게 계산해야 한다.")
 	@Test
 	void 총_주문_금액을_계산한다() {
+		int expected = 50_000;
+		order.add(beverage, 10);
+		int actual = order.calculateTotalPrice();
+
+		assertThat(actual).isEqualTo(expected);
 	}
 
 	@DisplayName("이 주문은 치킨이 몇개 있는가")
 	@Test
 	void 해당_주문안에_치킨의_갯수를_테스트한다() {
-		order.add(new Menu(1, "치킨", Category.CHICKEN, 5000), 3);
-		order.add(new Menu(1, "치킨", Category.CHICKEN, 5000), 5);
+		order.add(chicken, 3);
+		order.add(chicken, 5);
 		assertThat(order.countOfChicken()).isEqualTo(8);
 	}
 
 	@DisplayName("특정 주문을 추가한다.")
 	@Test
 	void 특정_주문을_추가한다() {
-		assertThatCode(() -> order.add(new Menu(1, "치킨", Category.CHICKEN, 5000), 3))
+		assertThatCode(() -> order.add(chicken, 3))
 			.doesNotThrowAnyException();
 	}
 

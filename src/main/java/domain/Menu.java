@@ -21,4 +21,8 @@ public class Menu {
     public boolean isChicken() {
         return category.isChicken();
     }
+
+    public int calculateTotalPrice(int count) {
+        return price * count;
+    }
 }

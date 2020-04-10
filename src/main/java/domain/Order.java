@@ -28,4 +28,10 @@ public class Order {
 	public boolean isEmpty() {
 		return orderCounts.isEmpty();
 	}
+
+	public int calculateTotalPrice() {
+		return orderCounts.keySet().stream()
+			.mapToInt(menu -> menu.calculateTotalPrice(orderCounts.getOrDefault(menu, 0)))
+			.sum();
+	}
 }
