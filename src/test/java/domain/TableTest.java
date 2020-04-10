@@ -79,4 +79,10 @@ class TableTest {
 	void toStringTest() {
 		assertThat(table.toString()).isEqualTo("1");
 	}
+
+	@DisplayName("getOrder")
+	@Test
+	void getOrderTest() {
+		assertThat(table.getOrder()).isInstanceOf(Order.class);
+	}
 }
