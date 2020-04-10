@@ -3,6 +3,7 @@ package domain;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -84,5 +85,11 @@ class OrderTest {
 		order.add(chicken, 40);
 		order.removeAllOrder();
 		assertThat(order.isEmpty()).isTrue();
+	}
+
+	@DisplayName("getOrderCountsTest")
+	@Test
+	void getMapTest() {
+		assertThat(order.getOrderCounts()).isInstanceOf(Map.class);
 	}
 }
