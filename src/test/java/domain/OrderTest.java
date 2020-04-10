@@ -76,4 +76,13 @@ class OrderTest {
 		order.add(beverage, 50);
 		assertThat(order.isEmpty()).isFalse();
 	}
+
+	@DisplayName("주문을 모두 삭제하면 주문목록이 비어있어야 한다.")
+	@Test
+	void 주문을_모두_삭제한_뒤_주문_목록이_비어있는지_확인() {
+		order.add(beverage, 50);
+		order.add(chicken, 40);
+		order.removeAllOrder();
+		assertThat(order.isEmpty()).isTrue();
+	}
 }

@@ -43,4 +43,8 @@ public class Order {
 			.mapToInt(menu -> menu.calculateTotalPrice(orderCounts.getOrDefault(menu, 0)))
 			.sum();
 	}
+
+	public void removeAllOrder() {
+		orderCounts.clear();
+	}
 }
