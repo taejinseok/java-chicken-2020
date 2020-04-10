@@ -1,6 +1,8 @@
 package controller;
 
+import domain.Menu;
 import domain.MenuRepository;
+import domain.Table;
 import domain.TableRepository;
 import service.ChickenService;
 import view.InputView;
@@ -19,7 +21,10 @@ public class OrderController implements ChickenController {
 
 	public void run() {
 		OutputView.printTables(chickenService.getTotalTables());
-		final int tableNumber = InputView.inputTableNumber();
+		Table table = chickenService.getTable(InputView.inputTableNumber());
 		OutputView.printMenus(chickenService.getTotalMenus());
+		Menu menu = chickenService.getMenu(InputView.inputMenuNumber());
+		int count = InputView.inputCountOrder();
+		chickenService.addOrder(table, menu, count);
 	}
 }

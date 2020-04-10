@@ -16,13 +16,9 @@ public class ChickenService {
 		this.tableRepository = tableRepository;
 	}
 
-	public void addOrder() {
-
-	}
-
-	public int processPayment(int tableId) {
-		Table table = tableRepository.findTable(tableId);
-		return 1;
+	public void addOrder(Table table, Menu menu, int count) {
+		table.addOrder(menu, count);
+		System.out.println("주문 완료!");
 	}
 
 	public List<Table> getTotalTables() {
@@ -31,5 +27,13 @@ public class ChickenService {
 
 	public List<Menu> getTotalMenus() {
 		return MenuRepository.menus();
+	}
+
+	public Table getTable(int tableId) {
+		return tableRepository.findTable(tableId);
+	}
+
+	public Menu getMenu(int menuId) {
+		return menuRepository.findMenu(menuId);
 	}
 }

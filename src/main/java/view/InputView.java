@@ -21,6 +21,16 @@ public class InputView {
 		return parseInt(SCANNER.nextLine());
 	}
 
+	public static int inputMenuNumber() {
+		System.out.println("##등록할 메뉴를 입력하세요.");
+		return parseInt(SCANNER.nextLine());
+	}
+
+	public static int inputCountOrder() {
+		System.out.println("##메뉴의 수량을 입력하세요.");
+		return parseInt(SCANNER.nextLine());
+	}
+
 	private static int parseInt(String input) {
 		try {
 			return Integer.parseInt(input);
