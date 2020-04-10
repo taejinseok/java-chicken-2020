@@ -25,4 +25,8 @@ public class Menu {
 	public int calculateTotalPrice(int count) {
 		return price * count;
 	}
+
+	public boolean isSameNumber(int number) {
+		return this.number == number;
+	}
 }

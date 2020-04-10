@@ -3,8 +3,10 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MenuRepository {
+	private static final String NONE_EXIST_MENU_WITH_NUMBER_EXCEPTION_MESSAGE = "해당 번호의 메뉴가 존재하지 않습니다.";
 	private static final List<Menu> menus = new ArrayList<>();
 
 	static {
@@ -21,4 +23,12 @@ public class MenuRepository {
 	public static List<Menu> menus() {
 		return Collections.unmodifiableList(menus);
 	}
+
+	public Menu findMenu(int menuId) {
+		return menus.stream()
+			.filter(menu -> menu.isSameNumber(menuId))
+			.findFirst()
+			.orElseThrow(() -> new NoSuchElementException(NONE_EXIST_MENU_WITH_NUMBER_EXCEPTION_MESSAGE));
+	}
+
 }

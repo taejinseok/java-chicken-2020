@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 @SuppressWarnings("NonAsciiCharacters")
 class MenuTest {
@@ -14,7 +16,7 @@ class MenuTest {
 	@BeforeEach
 	void setUp() {
 		chicken = new Menu(1, "치킨", Category.CHICKEN, 5_000);
-		beer = new Menu(1, "맥주", Category.BEVERAGE, 5_000);
+		beer = new Menu(2, "맥주", Category.BEVERAGE, 5_000);
 	}
 
 	@DisplayName("해당 메뉴가 치킨이면 참 반환하는지 테스트")
@@ -33,5 +35,13 @@ class MenuTest {
 	@Test
 	void 해당_메뉴의_갯수와_가격의_곱을_계산한다() {
 		assertThat(chicken.calculateTotalPrice(5)).isEqualTo(25_000);
+	}
+
+	@DisplayName("메뉴 인스턴스가 입력 받은 id와 같은 id 라면 참 반환")
+	@ParameterizedTest
+	@CsvSource({"1,true","2,false"})
+	void 테이블_인스턴스의_아이디가_입력받은_아이디와_같은지_테스트(int inputId, boolean expected) {
+		boolean actual = chicken.isSameNumber(inputId);
+		assertThat(actual).isEqualTo(expected);
 	}
 }

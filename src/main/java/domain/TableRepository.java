@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class TableRepository {
-	private static final List<Table> tables = new ArrayList<>();
 	private static final String NONE_EXIST_TABLE_WITH_NUMBER_EXCEPTION_MESSAGE = "해당 번호의 테이블이 존재하지 않습니다.";
+	private static final List<Table> tables = new ArrayList<>();
 
 	static {
 		tables.add(new Table(1));
